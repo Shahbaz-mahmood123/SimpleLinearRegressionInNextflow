@@ -1,6 +1,6 @@
 #!/usr/bin/env nextflow
-params.input_file = "/Users/shahbazmahmood/workspace/nextflow-testing/python/Salary_Data.csv"
-
+params.input_file = "Salary_Data.csv"
+params.python_script = "process_data.py"
 process runPythonScript {
 
     input:
@@ -11,7 +11,7 @@ process runPythonScript {
 
     script:
     """
-    python3 /Users/shahbazmahmood/workspace/nextflow-testing/python/process_data.py "${input_file}"
+    python3 "${params.python_script}" "${input_file}"
     """
 }
 
