@@ -1,20 +1,17 @@
 #!/usr/bin/env nextflow
-
-
+params.input_file = "/Users/shahbazmahmood/workspace/nextflow-testing/python/Salary_Data.csv"
 
 process runPythonScript {
 
-    params.input_data = "Hello, Nextflow!"
-
     input:
-    val input_data from params.input_data
+    file input_file from file(params.input_file)
 
     output:
     stdout result
 
     script:
     """
-    python3 /Users/shahbazmahmood/workspace/nextflow-testing/python/process_data.py "${input_data}"
+    python3 /Users/shahbazmahmood/workspace/nextflow-testing/python/process_data.py "${input_file}"
     """
 }
 
